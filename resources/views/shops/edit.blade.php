@@ -23,4 +23,9 @@
       </div>
       <button type="submit" class="btn btn-primary">更新</button>
   </form>
+  <form action="{{ route('shops.destroy', $shop) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-danger">削除</button>
+  </form>
 </x-layout>

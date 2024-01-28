@@ -65,8 +65,10 @@ class ShopsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Shops $shops)
+    public function destroy(Shops $shop)
     {
-        //
+        $shop->delete();
+
+        return redirect()->route('shops.index')->with('success', '店舗を削除しました。');
     }
 }

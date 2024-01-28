@@ -11,6 +11,7 @@
               <th>店舗名</th>
               <th>店舗住所</th>
               <th>編集</th>
+              
           </tr>
       </thead>
       <tbody>
