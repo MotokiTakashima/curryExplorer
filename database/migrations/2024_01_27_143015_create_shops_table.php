@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('address')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('website')->nullable();
-            $table->string('description');
-            $table->string('rating');
-            $table->string('created_by');
+            $table->string('phone')->default('');
+            $table->string('website')->default('');
+            $table->string('description')->default('');
+            $table->string('rating')->default('');
+            $table->string('created_by')->default('');
             $table->timestamps();
         });
     }

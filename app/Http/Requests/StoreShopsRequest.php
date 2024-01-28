@@ -11,7 +11,7 @@ class StoreShopsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,34 @@ class StoreShopsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'address' => ['nullable', 'string', 'max:255'],
+        ];
+    }
+
+    /**
+     * カラム名を日本語化
+     *
+     * @return array
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => '店舗名',
+            'address' => '店舗住所',
+        ];
+    }
+
+    /**
+     * エラーメッセージ
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => ':attributeを入力してください。',
+            'address.required' => ':attributeを入力してください。',
         ];
     }
 }
