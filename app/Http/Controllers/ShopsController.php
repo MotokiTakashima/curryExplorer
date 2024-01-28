@@ -31,7 +31,7 @@ class ShopsController extends Controller
      */
     public function store(StoreShopsRequest $request)
     {
-        Shops::create($request->only('name', 'address'));
+        Shops::create($request->only(['name', 'address']));
 
         return redirect()->route('shops.index')->with('success', '店舗を登録しました。');
     }
