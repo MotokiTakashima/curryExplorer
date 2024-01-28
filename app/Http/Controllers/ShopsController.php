@@ -13,6 +13,9 @@ class ShopsController extends Controller
      */
     public function index()
     {
+        $shops = Shops::orderBy('id', 'desc')->get();
+        
+        return view('shops.index', compact('shops'));
     }
 
     /**
@@ -30,7 +33,7 @@ class ShopsController extends Controller
     {
         Shops::create($request->only('name', 'address'));
 
-        return redirect()->route('shops.create')->with('success', '店舗を登録しました。');
+        return redirect()->route('shops.index')->with('success', '店舗を登録しました。');
     }
 
     /**
