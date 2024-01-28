@@ -10,6 +10,7 @@
               <th>ID</th>
               <th>店舗名</th>
               <th>店舗住所</th>
+              <th>編集</th>
           </tr>
       </thead>
       <tbody>
@@ -18,6 +19,9 @@
                   <td>{{ $shop->id }}</td>
                   <td>{{ $shop->name }}</td>
                   <td>{{ $shop->address }}</td>
+                  <td>
+                    <a href="{{ route('shops.edit', $shop) }}" class="btn btn-primary">編集</a>
+                </td>
               </tr>
           @endforeach
       </tbody>

@@ -13,7 +13,7 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        $shops = Shops::orderBy('id', 'desc')->get();
+        $shops = Shops::orderBy('id', 'asc')->get();
         
         return view('shops.index', compact('shops'));
     }
@@ -47,17 +47,19 @@ class ShopsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Shops $shops)
+    public function edit(Shops $shop)
     {
-        //
+        return view('shops.edit', compact('shop'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateShopsRequest $request, Shops $shops)
+    public function update(UpdateShopsRequest $request, Shops $shop)
     {
-        //
+        $shop->fill($request->all())->save();
+
+        return redirect()->route('shops.index')->with('success', '店舗を更新しました。');
     }
 
     /**
