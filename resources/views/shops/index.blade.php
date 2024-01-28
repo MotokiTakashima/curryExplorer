@@ -11,7 +11,7 @@
               <th>店舗名</th>
               <th>店舗住所</th>
               <th>編集</th>
-              
+              <th>削除</th>
           </tr>
       </thead>
       <tbody>
@@ -22,7 +22,14 @@
                   <td>{{ $shop->address }}</td>
                   <td>
                     <a href="{{ route('shops.edit', $shop) }}" class="btn btn-primary">編集</a>
-                </td>
+                  </td>
+                  <td>
+                    <form action="{{ route('shops.destroy', $shop) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-danger">削除</button>
+                    </form>
+                  </td>
               </tr>
           @endforeach
       </tbody>
