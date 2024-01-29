@@ -39,9 +39,9 @@ class ShopsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Shops $shops)
+    public function show(Shops $shop)
     {
-        //
+        return view('shops.show', compact('shop'));
     }
 
     /**

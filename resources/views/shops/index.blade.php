@@ -18,7 +18,9 @@
           @foreach ($shops as $shop)
               <tr>
                   <td>{{ $shop->id }}</td>
-                  <td>{{ $shop->name }}</td>
+                  <td>
+                    <a href="{{ route('shops.show', $shop) }}">{{ $shop->name }}</a>
+                  </td>
                   <td>{{ $shop->address }}</td>
                   <td>
                     <a href="{{ route('shops.edit', $shop) }}" class="btn btn-primary">編集</a>
