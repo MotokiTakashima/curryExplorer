@@ -10,6 +10,7 @@
               <th>ID</th>
               <th>店舗名</th>
               <th>店舗住所</th>
+              <th>電話番号</th>
               <th>編集</th>
               <th>削除</th>
           </tr>
@@ -22,6 +23,7 @@
                     <a href="{{ route('shops.show', $shop) }}">{{ $shop->name }}</a>
                   </td>
                   <td>{{ $shop->address }}</td>
+                  <td>{{ $shop->phone }}</td>
                   <td>
                     <a href="{{ route('shops.edit', $shop) }}" class="btn btn-primary">編集</a>
                   </td>

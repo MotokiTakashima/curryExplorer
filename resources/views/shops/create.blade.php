@@ -20,6 +20,13 @@
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
       </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">電話番号</label>
+        <input type="text" id="phone" class="form-control" name="phone" maxlength="100" value="{{ old('phone') }}">
+        @error('phone')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
       <button type="submit" class="btn btn-primary">登録</button>
   </form>
 </x-layout>

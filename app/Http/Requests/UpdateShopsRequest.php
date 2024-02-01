@@ -24,6 +24,7 @@ class UpdateShopsRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'nullable', 'string', 'max:255'],
+            'phone' => ['nullable', 'max:255', 'regex:/^0[0-9]{1,4}-[0-9]{1,4}-[0-9]{3,4}$/'],
         ];
     }
 
@@ -37,6 +38,7 @@ class UpdateShopsRequest extends FormRequest
         return [
             'name' => '店舗名',
             'address' => '店舗住所',
+            'phone' => '電話番号',
         ];
     }
 
@@ -49,7 +51,15 @@ class UpdateShopsRequest extends FormRequest
     {
         return [
             'name.required' => ':attributeを入力してください。',
+            'name.max' => ':attributeは255文字以内で入力してください。',
+            'name.string' => ':attributeは文字列で入力してください。',
+
             'address.required' => ':attributeを入力してください。',
+            'address.max' => ':attributeは255文字以内で入力してください。',
+            'address.string' => ':attributeは文字列で入力してください。',
+
+            'phone.max' => ':attributeは255文字以内で入力してください。',
+            'phone.regex' => ':attributeの形式が正しくありません。',
         ];
     }
 }
