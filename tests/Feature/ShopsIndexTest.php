@@ -43,4 +43,28 @@ class ShopsIndexTest extends TestCase
                 'フランス',
             ]);
     }
+
+    /**
+     * @test
+     */
+    public function 新規登録ボタンが表示されること(): void
+    {
+        $this->get(route('shops.index'))->assertSeeText('新規登録');
+    }
+
+    /**
+     * @test
+     */
+    public function 編集ボタンが表示されること(): void
+    {
+        $this->get(route('shops.index'))->assertSeeText('編集');
+    }
+
+    /**
+     * @test
+     */
+    public function 削除ボタンが表示されること(): void
+    {
+        $this->get(route('shops.index'))->assertSeeText('削除');
+    }
 }
